@@ -21,6 +21,8 @@ app.use(cors({
 const homeRouter = require('../routes/home.routes');
 const authRouter = require('../routes/auth.routes');
 const userRouter = require('../routes/user.routes');
+const aboutusRouter = require('../routes/aboutus.routes');
+const serviceRouter = require('../routes/service.routes');
 
 
 
@@ -35,6 +37,7 @@ app.get('/', (req, res) => {
 app.use('/api/home', homeRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
-
+app.use('/api/aboutus', aboutusRouter);
+app.use('/api/service', serviceRouter);
 
 module.exports = app;
