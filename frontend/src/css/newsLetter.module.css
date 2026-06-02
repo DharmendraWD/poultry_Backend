@@ -1,0 +1,119 @@
+/* ================================
+   Newsletter Section
+   ================================ */
+
+.section {
+  background: #f5f5f5;
+  padding: 0 var(--section-padding-x) 0;
+}
+
+.card {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Left green panel ── */
+.left {
+  background: var(--color-primary);
+  padding: 52px 44px 52px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left__title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3.5vw, 44px);
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.left__desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.75;
+  max-width: 360px;
+}
+
+/* ── Right white panel ── */
+.right {
+  background: #fff;
+  padding: 52px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+
+.input::placeholder {
+  color: #aaa;
+}
+
+.input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(106, 191, 58, 0.15);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 700px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    padding: 40px 28px;
+  }
+
+  .right {
+    padding: 36px 28px;
+  }
+}

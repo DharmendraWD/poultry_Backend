@@ -1,0 +1,98 @@
+/* ================================
+   Features Grid Section
+   ================================ */
+
+.section {
+  background: #f5f5f5;
+  padding: 64px var(--section-padding-x) 80px;
+}
+
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 36px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Active / highlighted card */
+.card--active {
+  background: var(--color-primary);
+}
+
+.card--active .card__icon {
+  color: #fff;
+}
+
+.card--active .card__title {
+  color: #fff;
+}
+
+.card--active .card__body {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Icon */
+.card__icon {
+  font-size: 44px;
+  color: #1e2d1e;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.card__icon svg {
+  width: 48px;
+  height: 48px;
+  fill: currentColor;
+}
+
+/* Title */
+.card__title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e2d1e;
+  margin-bottom: 12px;
+}
+
+/* Body */
+.card__body {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

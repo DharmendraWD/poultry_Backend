@@ -1,0 +1,88 @@
+<section className={`${styles.hero} ${styles.section} bg-red-500 p-4 rounded-lg`}> -- use class with conditional class 
+<div className={`${styles.hero__bottom} ${isActive ? "bg-red-500" : "bg-blue-500"}`}> -- use conditional with dynamic and normal class
+
+
+# exclude from single object while showing  
+    const { password, refresh_token, ...safeUser } = rows[0];
+
+    return res
+      .status(200)
+      .json(
+        new ApiResponse(
+          true,
+          "User data fetched successfully",
+          safeUser
+        )
+      );
+
+
+# CALL API 
+const {
+  data,
+  loadingApi,
+  error,
+  refetch,
+} = useApi(() => {
+  const token = localStorage.getItem("accessToken");
+  return getUsers(token);
+});
+
+# 
+  const imageBasePath = process.env.NEXT_PUBLIC_BASE_CONTENT_URL;
+
+
+###
+  <span
+                        className={styles.colorDot}
+  style={{ background: `var(--${item.color.replace('tab--', '').replace('-', '')})` }}
+                      />
+
+
+###
+
+{
+  Array.isArray(moreFeature) ? (
+    <div className={styles.whyGrid}>
+      {moreFeature.map((item, index) => (
+        <div
+          key={item.id || index}
+          className={styles.whyCard}
+        >
+          <div className={styles.whyGlow} />
+
+          <div className={styles.whyIcon}>
+            {item?.icon}
+          </div>
+
+          <h3>{item?.paragraph}</h3>
+
+          <p>
+            We maintain high-quality poultry farming standards with fresh
+            supply, hygienic processing, and customer-first service.
+          </p>
+        </div>
+      ))}
+    </div>
+  ) : (
+   <LoadingForEndUser />
+  )
+}
+
+const BASE_CONTENT_URL = process.env.NEXT_PUBLIC_BASE_CONTENT_URL;
+
+
+
+##
+const words = serviceFixedContent?.Hservice_para.split(" ");
+const midpoint = Math.ceil(words.length / 2);
+
+    // <h1>{words.slice(0, midpoint).join(" ")}</h1>
+    // <h1>{words.slice(midpoint).join(" ")}</h1>
+
+###
+    <Link
+  href={`https://www.google.com/maps/search/${encodeURIComponent(miscellaneousData?.location)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex gap-1 items-center"
+>

@@ -1,0 +1,248 @@
+/* ================================
+   Navbar Component
+   ================================ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--navbar-height);
+  /* background: var(--color-bg-navbar); */
+  /* box-shadow: var(--shadow-navbar); */
+  display: flex;
+  align-items: center;
+  padding: 0 var(--section-padding-x);
+}
+
+.navbar__inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--color-text-nav);
+  font-weight: 900;
+}
+
+.navbar__logo-icon {
+  width: 52px;
+  height: 52px;
+  position: relative;
+}
+
+.navbar__logo-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Logo SVG fallback */
+.logo-svg-wrap {
+  width: 52px;
+  height: 52px;
+}
+
+.navbar__logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--color-text-nav);
+  text-transform: uppercase;
+}
+
+/* Navigation Links */
+.navbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 44px;
+  list-style: none;
+}
+
+.navbar__nav a {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-nav);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.navbar__nav a:hover {
+  color: var(--color-accent);
+}
+
+.navbar__nav a.active {
+  color: var(--color-text-nav-active);
+}
+
+/* Dropdown indicator */
+.navbar__nav .has-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.navbar__nav .has-dropdown svg {
+  width: 14px;
+  height: 14px;
+  fill: var(--color-text-nav);
+  transition: fill 0.2s ease;
+}
+
+.navbar__nav .has-dropdown:hover svg {
+  fill: var(--color-accent);
+}
+
+/* Mobile hamburger */
+.navbar__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--color-text-nav);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile drawer */
+.navbar__mobile-drawer {
+  display: none;
+  position: fixed;
+  top: var(--navbar-height);
+
+  left: 0;
+  right: 0;
+  background: var(--color-bg-navbar-mobile);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 20px var(--section-padding-x);
+  z-index: 999;
+}
+
+.navbar__mobile-drawer.open {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navbar__mobile-drawer a {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-nav);
+  text-decoration: none;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: color 0.2s ease;
+}
+
+.navbar__mobile-drawer a:hover,
+.navbar__mobile-drawer a.active {
+  color: var(--color-accent);
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 800px) {
+  .navbar__nav {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+}
+
+/* Default navbar (your current state stays same) */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--section-padding-x);
+  transition: all 0.4s ease;
+}
+
+/* =========================
+   SCROLLED STATE (GRADIENT)
+   ========================= */
+.scrolled {
+  background: linear-gradient(
+    270deg,
+    rgba(106, 191, 58, 0.95),
+    rgba(87, 168, 46, 0.95),
+    rgba(87, 168, 46, 0.95)
+  );
+  background-size: 600% 600%;
+  /* animation: gradientMove 6s ease infinite; */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   CONTACT PAGE OVERRIDE (WHITE)
+   ========================= */
+.contact {
+   background: linear-gradient(
+    270deg,
+    rgba(106, 191, 58, 0.95),
+    rgba(87, 168, 46, 0.95),
+    rgba(30, 30, 30, 0.95)
+  );
+  background-size: 600% 600%;
+  /* animation: gradientMove 6s ease infinite; */
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: fix text color on contact page */
+.contact a,
+.contact span {
+  color: var(--color-text-nav) !important;
+}
+
+/* Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+ .navbar__logo_text{
+  display: none;
+ }
+}

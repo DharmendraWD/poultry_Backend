@@ -1,0 +1,255 @@
+/* SECTION */
+.section {
+  padding: 5rem 0;
+  background-color: #ffffff;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 8rem 0;
+  }
+}
+
+/* CONTAINER */
+.container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-size: 2.25rem;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3rem;
+  }
+}
+
+.gradientText {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, var(--color-primary), var(--color-logo-green));
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #4b5563;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* CARD */
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+/* IMAGE WRAPPER */
+.imageWrapper {
+  position: relative;
+  height: 100%;
+  min-height: 300px;
+}
+
+/* IMAGE */
+.image {
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.1);
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent);
+}
+
+/* CONTENT */
+.content {
+  position: absolute;
+  inset: 0;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.locationRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.875rem;
+}
+
+.infoRow {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.875rem;
+}
+
+/* BUTTON */
+.button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: white;
+  border-radius: 9999px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .button {
+  opacity: 1;
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(to right, #2563eb, #06b6d4);
+  border-radius: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 2.25rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.statLabel {
+  color: #bfdbfe;
+}
+
+/* LIGHTBOX BACKDROP */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+}
+
+/* LIGHTBOX CONTAINER */
+.lightboxContent {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  height: 70vh;
+  background: black;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* IMAGE */
+.lightboxImage {
+  object-fit: contain;
+}
+
+/* CLOSE BUTTON */
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+}
+
+/* TEXT */
+.lightboxText {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+}

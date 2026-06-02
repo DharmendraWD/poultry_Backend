@@ -1,2 +1,14 @@
 /frontend/.env
 /backend/.env
+/frontend/node_modules
+/backend/node_modules
+/frontend/.next
+/backend/dist
+/frontend/.vscode
+/backend/.vscode
+/frontend/.DS_Store
+/backend/.DS_Store
+node_modules/
+
+frontend/node_modules/
+backend/node_modules/

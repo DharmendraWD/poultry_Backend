@@ -1,0 +1,50 @@
+:root {
+  --bg-dashboard: #f8fafc;
+  --bg-sidebar: #0f172a;
+  --bg-card: #ffffff;
+  
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --text-on-dark: #f8fafc;
+  
+  --accent-primary: #3b82f6;
+  --accent-hover: #1d4ed8;
+  --border-color: #e2e8f0;
+
+  --sidebar-width-expanded: 260px;
+  --sidebar-width-collapsed: 78px;
+  
+  --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+.faEdit{
+  color: #3b82f6;
+  
+}

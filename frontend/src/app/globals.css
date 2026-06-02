@@ -1,0 +1,354 @@
+@import "tailwindcss";
+
+
+/* ================================
+   CHEEKY FARM — Global CSS Variables
+   ================================ */
+
+
+:root {
+  /* Brand Colors */
+  --color-primary: #6abf3a;         /* Green CTA button */
+  --color-primary-hover: #57a82e;   /* Green hover state */
+  --color-accent: #6abf3a;          /* Nav active link */
+  --color-logo-green: #4caf1a;      /* Logo green */
+
+  --color-text-nav: white;
+  --color-bg-navbar-mobile: #555555;
+  --iconOnPrimaryBgClr: white;
+
+  /* Text Colors */
+  --color-text-white: #ffffff;
+  --color-text-nav: #ffffff;
+  --color-text-nav-active: #98ff5e;
+  --color-text-muted: rgba(255, 255, 255, 0.85);
+  --color-text-body: rgba(255, 255, 255, 0.9);
+  --color-text-link: #6abf3a;
+
+  /* Background */
+  --color-bg-overlay: rgba(0, 0, 0, 0.38);
+  --color-bg-hero-bottom: rgba(0, 0, 0, 0.55);
+  --color-bg-navbar: rgba(255, 255, 255, 0.97);
+
+  /* Button */
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-text: #ffffff;
+  --btn-primary-radius: 50px;
+  --btn-primary-padding: 14px 42px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 50px;
+
+  /* Shadows */
+  --shadow-navbar: 0 2px 20px rgba(0, 0, 0, 0.08);
+  --shadow-btn: 0 4px 15px rgba(106, 191, 58, 0.4);
+
+  /* Typography */
+  --font-display: 'Montserrat', sans-serif;
+  --font-script: 'Dancing Script', cursive;
+  --font-body: 'Open Sans', sans-serif;
+
+  /* Spacing */
+  --navbar-height: 80px;
+  --section-padding-x: clamp(24px, 5vw, 80px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+
+.fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeUp {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+.cursor::after {
+  content: "|";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.whatsapp-btn{
+      padding: 15px 20px;
+}
+
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 7vw, 88px);
+  font-weight: 900;
+  color: var(--color-text-white);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+
+}
+.hero__cta {
+  display: inline-block;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: var(--btn-primary-padding);
+  border-radius: var(--btn-primary-radius);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: var(--shadow-btn);
+  transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.hero__cta:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(106, 191, 58, 0.5);
+}
+@media (max-width: 600px) {
+  .hero__title {
+    letter-spacing: -0.5px;
+  }
+
+}
+
+
+/* Location Popup  */
+/* Overlay */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Modal Box */
+.modal {
+  position: relative;
+  width: 360px;
+  padding: 40px 28px;
+
+  border-radius: 28px;
+
+  background: linear-gradient(
+    135deg,
+    #fffdf8,
+    #fff5df
+  );
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.15),
+    inset 0 0 0 1px rgba(255,255,255,0.4);
+
+  overflow: hidden;
+  text-align: center;
+
+  animation: popup 0.45s ease;
+}
+
+/* Decorative circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.circle1 {
+  width: 140px;
+  height: 140px;
+  background: #ffe08a;
+  top: -50px;
+  right: -50px;
+  opacity: 0.4;
+}
+
+.circle2 {
+  width: 100px;
+  height: 100px;
+  background: #ffb347;
+  bottom: -40px;
+  left: -40px;
+  opacity: 0.25;
+}
+
+/* Emoji */
+.emoji {
+  font-size: 56px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 2;
+
+  animation: bounce 2s infinite;
+}
+
+/* Title */
+.title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 14px;
+
+  position: relative;
+  z-index: 2;
+}
+
+.success {
+  color: #0f9f6e;
+}
+
+/* Description */
+.desc {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4b5563;
+
+  position: relative;
+  z-index: 2;
+}
+
+.desc span {
+  font-weight: 800;
+  color: #ff6b00;
+  font-size: 22px;
+}
+
+/* Buttons */
+.buttonGroup {
+  margin-top: 28px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* Direction button */
+.directionBtn {
+  border: none;
+  outline: none;
+
+  background: linear-gradient(
+    135deg,
+   var(--color-primary),
+    #ffb800
+  );
+
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+
+  padding: 14px 20px;
+  border-radius: 16px;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+}
+
+.directionBtn:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Close button */
+.closeBtn {
+  border: none;
+  background: transparent;
+
+  color: #6b7280;
+  font-size: 15px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closeBtn:hover {
+  color: #111827;
+}
+
+/* Animations */
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+/* Location Popup end  */

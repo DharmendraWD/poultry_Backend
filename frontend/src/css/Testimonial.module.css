@@ -1,0 +1,110 @@
+/* ================================
+   Testimonials Section
+   ================================ */
+
+.section {
+  background: #f5f5f5;
+  padding: 80px var(--section-padding-x) 90px;
+}
+
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ── */
+.card {
+  background: #fff;
+  border-radius: var(--radius-md);
+  padding: 36px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Large opening quote mark */
+.quote-icon {
+  font-family: Georgia, serif;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  /* Pull up slightly so it feels like a display element */
+  margin-top: -8px;
+}
+
+/* Review text */
+.card__body {
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: #666;
+  line-height: 1.75;
+  margin-bottom: 20px;
+}
+
+/* Stars */
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  color: #f5a623;
+  font-size: 18px;
+}
+
+/* Avatar */
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid #eee;
+}
+
+/* Reviewer name — sits below card, centered */
+.card__name {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e2d1e;
+  text-align: center;
+}
+
+/* Wrap each card + name together */
+.card-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ================================
+   Responsive
+   ================================ */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 56px var(--section-padding-x) 64px;
+  }
+}
