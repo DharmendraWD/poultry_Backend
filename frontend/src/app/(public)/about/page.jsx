@@ -1,3 +1,6 @@
+
+
+export const dynamic = 'force-dynamic';
 import AboutUs from "./About";
 
 import styles from "../../../css/aboutPage.module.css";

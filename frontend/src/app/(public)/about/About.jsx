@@ -13,10 +13,10 @@ console.log(BASE_CONTENT_URL + aboutUsFixedContent?.logo )
 
 
 const words = aboutUsFixedContent?.aboutusHeroPara.split(" ");
-const midpoint = Math.ceil(words.length / 2);
+const midpoint = Math.ceil(words?.length / 2);
 
 const words2 = aboutUsFixedContent?.aboutusbellowHeading.split(" ");
-const midpoint2 = Math.ceil(words.length / 2);
+const midpoint2 = Math.ceil(words2?.length / 2);
   return (
     <>
 

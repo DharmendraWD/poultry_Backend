@@ -1,5 +1,6 @@
 
 "use client";
+export const dynamic = 'force-dynamic';
 import img1 from "../../../../public/owned/hens3.png";
 import img2 from "../../../../public/owned/hens4.png";
 import img3 from "../../../../public/owned/hens5.png";
