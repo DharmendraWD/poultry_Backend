@@ -1,6 +1,8 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { pool } = require('../db/db');
+const path = require('path');
+const fs = require('fs');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -210,3 +212,30 @@ exports.deleteUser = async (req, res) => {
   }
 };
 
+// change password 
+exports.changePassword = async (req, res) => {
+  try {
+    const userId = req?.user?.id;
+    // console.log(userId)
+    const { currentPassword, newPassword } = req?.body;
+
+    const [rows] = await pool.query('SELECT password FROM users WHERE id = ?', [userId]);
+    if (!rows.length) {
+      return res.status(404).json({ success: false, message: 'User not found' });
+    }
+
+    const user = rows[0];
+    const passwordMatches = await bcrypt.compare(currentPassword, user.password);
+    if (!passwordMatches) {
+      return res.status(401).json({ success: false, message: 'Current password is incorrect' });
+    }
+
+    const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+    await pool.query('UPDATE users SET password = ? WHERE id = ?', [hashedNewPassword, userId]);
+
+    return res.json({ success: true, message: 'Password changed successfully' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ success: false, message: 'Change password failed', error: error.message });
+  }
+};

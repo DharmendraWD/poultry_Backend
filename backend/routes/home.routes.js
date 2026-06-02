@@ -5,10 +5,12 @@ const createUploader = require('../middleware/upload');
 const homeController = require('../controllers/home.controller');
 
 const multiUpload = require('../middleware/multiupload');
+const { authenticateAccessToken } = require('../middleware/auth');
     // HERO SECTION 
 router.route('/hero').get(
     homeController.getHeroSection
 ).post(
+    authenticateAccessToken,
   createUploader({
     folder: 'hero',
     fileType: 'image',
@@ -38,8 +40,10 @@ router.route('/firstcard').post(
     homeController.getFirstCard
 )
 router.route('/firstcard/:id').put(
+    authenticateAccessToken,
     homeController.updateFirstCard
 ).delete(
+    authenticateAccessToken,
     homeController.deleteFirstCard
 ).get(
     homeController.getParticularFirstCard
@@ -48,13 +52,16 @@ router.route('/firstcard/:id').put(
 
 // HOME FEATURE CARDS 
 router.route('/homefeaturecard').post(
+    authenticateAccessToken,
     homeController.createHomeFeatureCard
 ).get(
     homeController.getHomeFeatureCard
 )
 router.route('/homefeaturecard/:id').put(
+    authenticateAccessToken,
     homeController.updateHomeFeatureCard
 ).delete(
+    authenticateAccessToken,
     homeController.deleteHomeFeatureCard
 ).get(
     homeController.getParticularHomeFeatureCard
@@ -63,13 +70,16 @@ router.route('/homefeaturecard/:id').put(
 
 // WHY CHOOSE US 
 router.route('/whychooseus').post(
+    authenticateAccessToken,
     homeController.createWhyChooseUs
 ).get(
     homeController.getWhyChooseUs
 )
 router.route('/whychooseus/:id').put(
+    authenticateAccessToken,
     homeController.updateWhyChooseUs
 ).delete(
+    authenticateAccessToken,
     homeController.deleteWhyChooseUs
 ).get(
     homeController.getParticularWhyChooseUs
@@ -78,6 +88,7 @@ router.route('/whychooseus/:id').put(
 
 // TESTIMONIALS 
 router.route('/testimonial').post(
+        authenticateAccessToken,
       createUploader({
     folder: 'testimonial',
     fileType: 'image',
@@ -88,6 +99,7 @@ router.route('/testimonial').post(
     homeController.getTestimonials
 )
 router.route('/testimonial/:id').put(
+    authenticateAccessToken,
     createUploader({
         folder: 'testimonial',
         fileType: 'image',
@@ -95,6 +107,7 @@ router.route('/testimonial/:id').put(
       }),
     homeController.updateTestimonial
 ).delete(
+    authenticateAccessToken,
     homeController.deleteTestimonial
 ).get(
     homeController.getParticularTestimonial
@@ -104,6 +117,7 @@ router.route('/testimonial/:id').put(
 
 // PRODUCT ROUTE 
 router.route('/product').post(
+    authenticateAccessToken,
     createUploader({
         folder: 'product',
         fileType: 'image',
@@ -114,6 +128,7 @@ router.route('/product').post(
     homeController.getProducts
 )
 router.route('/product/:id').put(
+    authenticateAccessToken,
     createUploader({
         folder: 'product',
         fileType: 'image',
@@ -121,6 +136,7 @@ router.route('/product/:id').put(
       }),
     homeController.updateProduct
 ).delete(
+    authenticateAccessToken,
     homeController.deleteProduct
 ).get(
     homeController.getParticularProduct
@@ -129,6 +145,7 @@ router.route('/product/:id').put(
 
 // GALLERY ROUTE 
 router.route('/gallery').post(
+    authenticateAccessToken,
     createUploader({
         folder: 'gallery',
         fileType: 'image',
@@ -139,6 +156,7 @@ router.route('/gallery').post(
     homeController.getGalleryImages
 )
 router.route('/gallery/:id').put(
+    authenticateAccessToken,
     createUploader({
         folder: 'gallery',
         fileType: 'image',
@@ -146,6 +164,7 @@ router.route('/gallery/:id').put(
       }),
     homeController.updateGalleryImage
 ).delete(
+    authenticateAccessToken,    
     homeController.deleteGalleryImage
 )
 // GALLERY ROUTE END
@@ -153,21 +172,23 @@ router.route('/gallery/:id').put(
 // HERO PAGE STATS 
 router.get("/stats", homeController.getStats);
 
-router.post("/stats", homeController.createStat);
+router.post("/stats",
+    authenticateAccessToken,
+    homeController.createStat);
 
-router.put("/stats/:id", homeController.updateStat);
+router.put("/stats/:id", authenticateAccessToken, homeController.updateStat);
 
-router.delete("/stats/:id", homeController.deleteStat);
+router.delete("/stats/:id", authenticateAccessToken, homeController.deleteStat);
 // HERO PAGE STATS END
 
 // HERO PAGE TICKER 
 router.get("/ticker", homeController.getTickerItems);
 
-router.post("/ticker", homeController.createTickerItems);
+router.post("/ticker", authenticateAccessToken, homeController.createTickerItems);
 
-router.delete("/ticker/:id", homeController.deleteTickerItem);
+router.delete("/ticker/:id", authenticateAccessToken, homeController.deleteTickerItem);
 
-router.put("/ticker/:id", homeController.updateTickerItem);
+router.put("/ticker/:id", authenticateAccessToken, homeController.updateTickerItem);
 
 // HERO PAGE TICKER END 
 
@@ -175,6 +196,7 @@ router.put("/ticker/:id", homeController.updateTickerItem);
 router.get('/site-settings', homeController.getSiteSettings);
 router.put(
   '/site-settings',
+  authenticateAccessToken,
   multiUpload,
   homeController.updateSiteSettings
 );

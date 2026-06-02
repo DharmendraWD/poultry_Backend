@@ -10,6 +10,8 @@ router.post('/logout', authController.logout);
 
 // optional admin-only endpoint for creating users
 router.post('/create-user',
+  authenticateAccessToken,
+  authorizeSuperAdmin,
     createUploader({
       folder: 'users',
       fileType: 'image',
@@ -19,5 +21,7 @@ router.post('/create-user',
 
      router.get('/get-me', authenticateAccessToken, authController.getMe);
      router.delete('/delete-user/:id', authenticateAccessToken, authorizeSuperAdmin, authController.deleteUser);
+
+     router.put('/change-password', authenticateAccessToken, authController.changePassword);
 
 module.exports = router;
