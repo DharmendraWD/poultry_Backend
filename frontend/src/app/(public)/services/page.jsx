@@ -1,5 +1,6 @@
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 import React from 'react'
 import FarmExperience from './ServicePage'
 
@@ -56,9 +57,9 @@ async function getServiceFixedContent() {
 
 
 const page = async () => {
- const moreFeature = await getData();
- const feature = await getServiceFeature();
- const serviceFixedContent = await getServiceFixedContent();
+ const moreFeature = await getData() || {};
+ const feature = await getServiceFeature() || [];
+ const serviceFixedContent = await getServiceFixedContent() || {};
 
 
   return (

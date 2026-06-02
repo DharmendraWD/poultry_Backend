@@ -33,7 +33,7 @@ async function getcontactUs() {
 
 
 export default async function ContactUs() {
-const miscellaneousData = await getcontactUs();
+const miscellaneousData = await getcontactUs() || {};
 
   return (
     <section className={styles.contactSection}>

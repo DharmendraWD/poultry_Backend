@@ -44,8 +44,8 @@ async function getAboutusFixedContent() {
 
 export default async function Page() {
 
- const feature = await getAboutUsFeature();
- const aboutUsFixedContent = await getAboutusFixedContent();
+ const feature = await getAboutUsFeature() || [];
+ const aboutUsFixedContent = await getAboutusFixedContent() || {};
 
 
 
