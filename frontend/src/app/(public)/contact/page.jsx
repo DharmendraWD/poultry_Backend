@@ -24,6 +24,7 @@ async function getcontactUs() {
    const data = await res.json();
    return data?.data || {};
   } catch (error) {
+    return {};
    console.log(error);
   }
  }

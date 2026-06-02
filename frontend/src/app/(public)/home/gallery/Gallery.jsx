@@ -40,6 +40,7 @@ async function getGalleryData() {
    return data?.data || {};
   } catch (error) {
    console.log(error);
+    return {};
   }
  }
 

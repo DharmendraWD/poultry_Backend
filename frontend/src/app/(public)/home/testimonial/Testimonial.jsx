@@ -38,6 +38,7 @@ async function getTestimonial() {
    return data?.data || {};
   } catch (error) {
    console.log(error);
+   return {};
   }
  }
 

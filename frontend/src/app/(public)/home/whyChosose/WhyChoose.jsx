@@ -21,6 +21,7 @@ async function getWhyChooseUs() {
    return data?.data || {};
   } catch (error) {
    console.log(error);
+   return {};
   }
  }
 

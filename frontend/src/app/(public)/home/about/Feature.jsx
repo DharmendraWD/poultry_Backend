@@ -24,6 +24,7 @@ async function getFeatures() {
    return data?.data || {};
   } catch (error) {
    console.log(error);
+   return [];
   }
  }
 

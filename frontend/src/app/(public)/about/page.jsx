@@ -20,6 +20,7 @@ async function getAboutUsFeature() {
    return data?.data || [];
   } catch (error) {
    console.log(error);
+   return [];
   }
  }
 async function getAboutusFixedContent() {
@@ -34,7 +35,9 @@ async function getAboutusFixedContent() {
    const data = await res.json();
    return data?.data || {};
   } catch (error) {
+    
    console.log(error);
+   return {};
   }
  }
 

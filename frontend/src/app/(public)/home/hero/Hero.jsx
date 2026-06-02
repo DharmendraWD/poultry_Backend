@@ -33,10 +33,10 @@ const getStats = async () => {
       throw new Error('Failed to fetch stats');
     }
     const data = await response.json();
-    return data?.data;
+    return data?.data || [];
   } catch (error) {
     console.error('Error fetching stats:', error);
-    return null;
+    return [];
   }
 };
 const getTicker = async () => {
@@ -49,7 +49,7 @@ const getTicker = async () => {
     return data?.data || [];
   } catch (error) {
     console.error('Error fetching ticker:', error);
-    return null;
+    return [];
   }
 };
 
@@ -65,7 +65,7 @@ const getHeroData = async () => {
     return data?.data || [];
   } catch (error) {
     console.error('Error fetching hero data:', error);
-    return null;
+    return [];
   }
 };
 
