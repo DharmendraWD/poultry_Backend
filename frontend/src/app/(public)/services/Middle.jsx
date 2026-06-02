@@ -1,6 +1,4 @@
 "use client";
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
 import img2 from '../../../../public/owned/adultHen2.png';
 import agri from "../../../../public/owned/agri3.jpg"
 import fish from "../../../../public/owned/fishFarm2.jpg"
