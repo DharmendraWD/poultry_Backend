@@ -28,10 +28,20 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
   try {
+
+ console.log('Attempting login...');
+    await login(form.email, form.password);
+    console.log('Login success, redirecting to:', from);
+    router.push(from);
+
     await login(form.email, form.password);
     router.push(from); // ← redirect back to where they came from
   } catch (err) {
-    setError(err?.response?.data?.message || 'Login failed.');
+     console.log('Login error:', err);
+    console.log('Error response:', err?.response);
+    console.log('Error response data:', err?.response?.data);
+    console.log('Error message:', err?.message);
+    setError(err?.response?.data?.message || err?.message || 'Login failed.');
   } finally {
     setLoading(false);
   }
