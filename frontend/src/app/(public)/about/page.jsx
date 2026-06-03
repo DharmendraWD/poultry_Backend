@@ -11,9 +11,9 @@ async function getAboutUsFeature() {
   try {
     const res = await fetch(
      `${process.env.BASE_URL}/aboutus/features`,
-     {
-       cache: "no-store",
-     }
+    //  {
+    //    cache: "no-store",
+    //  }
    );
 
    const data = await res.json();
@@ -27,9 +27,9 @@ async function getAboutusFixedContent() {
   try {
     const res = await fetch(
      `${process.env.BASE_URL}/aboutus/fixed-content`,
-     {
-       cache: "no-store",
-     }
+    //  {
+    //    cache: "no-store",
+    //  }
    );
 
    const data = await res.json();
@@ -43,6 +43,7 @@ async function getAboutusFixedContent() {
 
 
 export default async function Page() {
+  
 
  const feature = await getAboutUsFeature() || [];
  const aboutUsFixedContent = await getAboutusFixedContent() || {};
