@@ -1,6 +1,6 @@
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+// export const dynamic = "force-dynamic";
+// export const fetchCache = "force-no-store";
 import React from 'react'
 import FarmExperience from './ServicePage'
 
@@ -12,9 +12,9 @@ async function getData() {
  try {
    const res = await fetch(
    `${process.env.BASE_URL}/service/detail-box`,
-    {
-      cache: "no-store",
-    }
+    // {
+    //   cache: "no-store",
+    // }
   );
 
   const data = await res.json();
@@ -28,9 +28,9 @@ async function getServiceFeature() {
   try {
     const res = await fetch(
      `${process.env.BASE_URL}/service/features`,
-     {
-       cache: "no-store",
-     }
+    //  {
+    //    cache: "no-store",
+    //  }
    );
 
    const data = await res.json();
@@ -43,9 +43,9 @@ async function getServiceFixedContent() {
   try {
     const res = await fetch(
      `${process.env.BASE_URL}/service/fixed-content`,
-     {
-       cache: "no-store",
-     }
+    //  {
+    //    cache: "no-store",
+    //  }
    );
 
    const data = await res.json();
