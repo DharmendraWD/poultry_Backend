@@ -13,6 +13,9 @@ import WhyChooseUs from "./(public)/home/whyChosose/WhyChoose";
 import AOSInit from "./AOSInit";
 
 
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
+
 export const metadata = {
   title: 'Western Poultry Breeding Farm Pvt. Ltd.',
   description: 'Always Loyal and Honest. Premium farm products.',

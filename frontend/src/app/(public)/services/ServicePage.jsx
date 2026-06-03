@@ -67,7 +67,7 @@ export default function FarmExperience({moreFeature, feature, serviceFixedConten
 
 const BASE_CONTENT_URL = process.env.NEXT_PUBLIC_BASE_CONTENT_URL;
 
-const words = serviceFixedContent?.Hservice_para.split(" ");
+const words = serviceFixedContent?.Hservice_para?.split(" ") ?? [];
 const midpoint = Math.ceil(words.length / 2);
 
 

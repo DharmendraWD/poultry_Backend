@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { useSearchParams } from 'next/navigation';
-
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -13,6 +11,12 @@ export default function LoginPage() {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [from, setFrom] = useState('/admin/dashboard');
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    setFrom(searchParams.get('from') || '/admin/dashboard');
+  }, []);
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -20,14 +24,11 @@ export default function LoginPage() {
   };
 
 
-const searchParams = useSearchParams();
-
 const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);
   try {
     await login(form.email, form.password);
-    const from = searchParams.get('from') || '/admin/dashboard'; // ← read ?from=
     router.push(from); // ← redirect back to where they came from
   } catch (err) {
     setError(err?.response?.data?.message || 'Login failed.');

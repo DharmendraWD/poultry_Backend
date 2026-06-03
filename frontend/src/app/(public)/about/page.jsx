@@ -1,6 +1,5 @@
-
-
-// export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 import AboutUs from "./About";
 
 import styles from "../../../css/aboutPage.module.css";
@@ -11,9 +10,9 @@ async function getAboutUsFeature() {
   try {
     const res = await fetch(
      `${process.env.BASE_URL}/aboutus/features`,
-    //  {
-    //    cache: "no-store",
-    //  }
+      {
+        cache: "no-store",
+      }
    );
 
    const data = await res.json();
@@ -27,9 +26,9 @@ async function getAboutusFixedContent() {
   try {
     const res = await fetch(
      `${process.env.BASE_URL}/aboutus/fixed-content`,
-    //  {
-    //    cache: "no-store",
-    //  }
+      {
+        cache: "no-store",
+      }
    );
 
    const data = await res.json();
