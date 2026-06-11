@@ -55,7 +55,7 @@ const handleProfileFile = (e) => {
 
   const [form, setForm] = useState({
     username: '', email: '', password: '',
-    fullname: '', isAdmin: '1', isSuperAdmin: '0',
+    fullname: '', isAdmin: '1', isSuperAdmin: '1',
   });
   const [formLoading, setFormLoading] = useState(false);
 
@@ -87,7 +87,8 @@ const handleCreate = async (e) => {
     if (profileFile) payload.append('profileImag', profileFile);
 
     const res = await createUser(payload);
-    handleApiMessage(res?.message);
+    // console.log(payload)
+    handleApiMessage(res?.message || "Something went wrong.");
 
     setDataList((prev) => [
       {
@@ -104,7 +105,7 @@ const handleCreate = async (e) => {
       ...prev,
     ]);
 
-    setForm({ username: '', email: '', password: '', fullname: '', isAdmin: '1', isSuperAdmin: '0' });
+    setForm({ username: '', email: '', password: '', fullname: '', isAdmin: '1', isSuperAdmin: '1' });
     setProfileFile(null);
     setProfilePreview(null);
     setCreateOpen(false);
@@ -410,12 +411,23 @@ const handleCreate = async (e) => {
 </div>
 
               <div className={styles.fieldGroup}>
+                <label className={styles.fieldLabel}>User Name</label>
+                <input
+                  name="username"
+                  value={form.username}
+                  onChange={handleChange}
+                  placeholder="User Name"
+                  className={styles.input}
+                />
+              </div>
+
+              <div className={styles.fieldGroup}>
                 <label className={styles.fieldLabel}>Full Name</label>
                 <input
                   name="fullname"
                   value={form.fullname}
                   onChange={handleChange}
-                  placeholder="e.g. John Doe"
+                  placeholder="Full Name"
                   className={styles.input}
                 />
               </div>

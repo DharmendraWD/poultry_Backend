@@ -118,7 +118,7 @@ import api from '@/lib/axios'; // ← use your proxy axios instance, not raw axi
 
 const AuthContext = createContext(null);
 
-const REFRESH_INTERVAL_MS = 1 * 60 * 1000;
+const REFRESH_INTERVAL_MS = 14 * 60 * 1000;
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
